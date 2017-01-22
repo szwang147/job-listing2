@@ -1,4 +1,5 @@
 class Resume < ApplicationRecord
-  belong_to :user
-  belong_to :job
+  belongs_to :user
+  belongs_to :job
+  validates :content, presence: true
 end
