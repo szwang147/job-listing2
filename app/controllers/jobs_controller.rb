@@ -6,6 +6,11 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+
+    if @job.is_hidden
+      flash[:notice] = "this job already hidden"
+      redirect_to jobs_path
+    end
   end
 
   def new

@@ -1,6 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :require_is_admin
+  layout "admin"
 
   # /. move followed def to ApplicationController
   # def require_is_admin
@@ -53,6 +54,19 @@ class Admin::JobsController < ApplicationController
     flash[:notice] = "delete"
     redirect_to admin_jobs_path
   end
+
+  def publish
+    @job = Job.find(params[:id])
+    @job.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+    @job.hide!
+    redirect_to :back
+  end
+
 
   private
 
