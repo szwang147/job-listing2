@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def has_applied?(job)
     applied_jobs.include?(job)
   end
+
+  def apply!(job)
+    applied_jobs << job
+  end
 end
