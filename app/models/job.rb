@@ -19,5 +19,5 @@ class Job < ApplicationRecord
   has_many :resumes
 
   has_many :job_relationships
-  has_many :applied_job, through: :job_relationships, source: :job
+  has_many :applied_users, through: :job_relationships, source: :user
 end
