@@ -7,4 +7,7 @@ class User < ApplicationRecord
     is_admin
   end
   has_many :resumes
+  has_many :job_relationships
+  has_many :applied_user, through: :job_relationships, source: :user
+
 end
