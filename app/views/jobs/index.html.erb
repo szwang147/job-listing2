@@ -30,7 +30,7 @@
         <td><%= job.created_at %></td>
         <td>
           <% if current_user && current_user.has_applied?(job) %>
-            <%= link_to("已经投递，请修改", edit_job_resume_path(job,job.resumes), class:"btn btn-info btn-xs") %>
+            <%= link_to("已经投递，请修改", "/", class:"btn btn-info btn-xs") %>
             <% else %>
             <%= link_to("没有投递，请投递", new_job_resume_path(job), class:"btn btn-info btn-xs") %>
             <% end %>

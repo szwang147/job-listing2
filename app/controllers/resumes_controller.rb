@@ -21,6 +21,15 @@ class ResumesController < ApplicationController
     end
   end
 
+  def edit
+    @job = Job.find(params[:job_id])
+    @resume = Resume.find(params[:id])
+  end
+
+  def update
+  end
+
+
   private
   def resume_params
     params.require(:resume).permit(:content, :attachment)
