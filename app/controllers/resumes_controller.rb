@@ -13,12 +13,22 @@ class ResumesController < ApplicationController
     @resume.user = current_user
 
     if @resume.save
-      redirect_to job_path(@job)
+      current_user.apply!(@job)
+      redirect_to jobs_path
       flash[:notice] = "thanks for submit resume"
     else
       render :new
     end
   end
+
+  def edit
+    @job = Job.find(params[:job_id])
+    @resume = Resume.find(params[:id])
+  end
+
+  def update
+  end
+
 
   private
   def resume_params
